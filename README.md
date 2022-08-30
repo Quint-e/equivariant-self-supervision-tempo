@@ -2,7 +2,9 @@
 
 # Equivariant Self-Supervision for Musical Tempo Estimation
 
-[Elio Quinton](https://scholar.google.com/citations?user=IaciybgAAAAJ) (Universal Music Group)
+[Elio Quinton](https://scholar.google.com/citations?user=IaciybgAAAAJ) 
+
+(Universal Music Group)
 
 <p align="center">
 <img src="sst_diagram.png" width="250">
