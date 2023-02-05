@@ -67,33 +67,6 @@ def save_model_files(model, config):
     config_path = os.path.join(config.docker.outdir, '{}_config.yaml'.format(config.run_name))
     OmegaConf.save(config=config, f=config_path)
 
-# def get_model_filepaths(model_dir: str) -> Tuple[str, str]: 
-#     '''Get the pre-trained model and config file paths, given the model directory.
-#     This script expects that there is exactly 2 files in the folder: one model file with .pt extension and one config with .yaml extension.'''
-#     filepaths = glob.glob(os.path.join(model_dir,"*"))
-#     # Assert that there are exactly two files in the pre-trained model folder. 
-#     if len(filepaths)!=2:
-#         raise ValueError('Pre-trained model folder should contain exactly 2 files (one .pt for the model and one .yaml for the config), but found {}'.len(filepaths))
-#     # Look for model and config file
-#     model_found = False
-#     config_found = False
-#     for fp in filepaths:
-#         if fp.endswith('.pt'):
-#             model_filepath = fp
-#             model_found = True
-#         elif fp.endswith('.yaml'):
-#             config_filepath = fp
-#             config_found = True
-#         else:
-#             raise ValueError('Unknown file extension in pre-trained model folder. It should be one of (.pt, .yaml)')
-#     # Check that model and config files were found. 
-#     if model_found==False:
-#         raise ValueError('Cannot find a pretrained model file. Model file should have the extension .pt and be placed in the pretrained_model folder.')
-#     if config_found==False:
-#         raise ValueError('Cannot find a pretrained model config file. Config file should have the extension .yaml and be placed in the pretrained_model folder.')
-#     return model_filepath, config_filepath
-    
-
 
 def validate_device(device):
     if device == None:
@@ -201,8 +174,6 @@ if __name__ == "__main__":
     # CLI argument parser
     parser = argparse.ArgumentParser(description='Finetune Script')
 
-    # parser.add_argument('--pretrained_model_filepath', metavar='pretrained_model_filepath', type=str, help='Path to pre-trained model file')
-    # parser.add_argument('--pretrained_config_filepath', metavar='pretrained_config_filepath', type=str, help='Path to pre-trained model config file')
     parser.add_argument('--config_file', metavar='config_file', type=str, help='Path to finetune config file')
     parser.add_argument('--batch_size', metavar='batch_size', type=int, help='Batch size')
     parser.add_argument('--epochs', metavar='epochs', type=int, help='Number of Epochs')
