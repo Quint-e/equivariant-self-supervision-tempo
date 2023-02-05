@@ -44,6 +44,8 @@ For each dataset, we prepared JSON indexes listing all audio files and correspon
 
 Magnatagatune does not contain tempo annotations and is used for self-supervised pre-training. All other datasets contain tempo annotations and can be used for fine-tuning and evaluation. 
 
+We also included a [`ACM_mirum_tempo_tiny.json`](datasets_indexes/ACM_mirum_tempo_tiny.json) indexe, with only a tiny subset of the ACM Mirum Tempo dataset, as a convenient small dataset to test code. 
+
 ## Configuration files
 
 The model and training (hyper)parameters are set in configuration files located in the [`sst/configs`](sst/configs) folder. 
@@ -109,11 +111,11 @@ Without GPU:
 make eval dataset_dir="<path_to_your_local_datasets_folder>" pretrained_model_dir="<path_to_your_local_pretrained_model_folder>" output_dir="<path_to_your_local_output_folder>"
 ```
 
-
-
 5. Cleanup
 
-```make cleanup```
+```
+make cleanup
+```
 
 This command will delete the docker image and associated stopped containers. 
 
@@ -171,7 +173,7 @@ See the official [Docker documentation](https://docs.docker.com/engine/reference
 
 By default if you change the code, the image needs to be rebuilt before it can be re-run and reflect the code changes. 
 
-For faster development and not having to re-build the image at each code change, you can mount your code volume into the docker container by adding the following argument to the docker run command: `-v <path_to_the_local_code_dir>:/opt/ml/code/`. Where `<path_to_the_local_code_dir>` is the absolute path to the `./sst` folder of this repo. 
+For faster development and not having to re-build the image at each code change, you can mount your code volume into the docker container by adding the following argument to the docker run command: `-v <path_to_the_local_code_dir>:/opt/ml/code/`. Where `<path_to_the_local_code_dir>` is the absolute path to the root folder of this repo. 
 
 
 

@@ -4,7 +4,7 @@ See below for the file structure for each dataset.
 
 For the avoidance of doubt, we only show folders below, and the audio files are stored in these folders. 
 
-For a complete reference, please take a look at the [dataset indexes](datasets_indexes), which spell out the file paths for each audio file, for each dataset. 
+For a further reference, please take a look at the [dataset indexes](datasets_indexes), which spell out the file paths for each audio file, for each dataset. 
 
 
 ## Magnatagatune
