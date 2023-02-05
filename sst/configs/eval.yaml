@@ -1,0 +1,32 @@
+config_basename: eval
+tmp_dir: /opt/ml/code
+pretrained_model_dir: /opt/ml/pretrained_model
+eval:
+  tempo_tol: 0.04
+  reduction: 'mean'
+dataset:
+  basedir: /opt/ml/input/data/training/
+  indexes:
+    - ../datasets_indexes/gtzan.json
+  num_workers: 4
+  sr: 44100
+  model_input_num_samples: 600000
+  random_excerpt: False
+  num_samples: null
+  start_sample: 0
+  downmix_to_mono: True
+  rseed: 2345
+  use_augmentations: False
+  augmentations:
+    - pitch_shifting
+  aug_params:
+    pitch_shifting:
+      cent_min: -400
+      cent_max: 400
+frontend:
+  use_augmentations: False
+docker:
+  outdir: /opt/ml/model
+
+
+
