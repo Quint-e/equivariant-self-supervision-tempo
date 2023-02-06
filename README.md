@@ -13,6 +13,7 @@
 
 Official implementation of [*Equivariant Self-Supervision for Musical Tempo Estimation*](https://arxiv.org/pdf/2209.01478.pdf), published at [ISMIR 2022](https://ismir2022.ismir.net). 
 
+Includes a [pre-trained model](#pre-trained-model).
 
 ## Citation
 
@@ -143,7 +144,7 @@ docker build -t ess-tempo -f Dockerfile .
 docker run -v "<path_to_your_local_datasets_folder>":"/opt/ml/input/data/training/" -v "<path_to_your_local_output_folder>":"/opt/ml/model/" ess-tempo train.py
 ```
 
-3. Run fine-tuning:
+3. Run supervised fine-tuning:
 
 ```
 docker run -v "<path_to_your_local_datasets_folder>":"/opt/ml/input/data/training/" -v "<path_to_your_local_pretrained_model_folder>":"/opt/ml/pretrained_model/" -v "<path_to_your_local_output_folder>":"/opt/ml/model/" ess-tempo finetune.py
@@ -213,6 +214,13 @@ python finetune.py
 ```
 python eval.py
 ```
+
+## Pre-trained model
+
+We provide the model weights obtained with equivariant self-supervised training on the Magnatagatune dataset. Find it in the [`pretrained_model`](pretrained_model) folder.
+
+This model can be fine-tuned using the `finetune` script (including via Make/Docker) provided.
+
 
 ## Tests
 
